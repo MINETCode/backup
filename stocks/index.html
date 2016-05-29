@@ -1,0 +1,82 @@
+<style type="text/css">
+	::selection {
+		background: #f9f9f9;
+	}
+	body {
+		font-family: sans-serif;
+		margin: 10px;
+		background: whitesmoke;
+	}
+	table {
+		width: 100%;
+		background: #fff;
+		border-right: 1px solid #aaa;
+		border-top: 1px solid #aaa;
+		box-sizing: border-box;
+	}
+	.autoincrementer {
+		position: fixed;
+		display: none;
+	}
+	select, input {
+		width: 100%;
+		margin-bottom: 10px;
+		padding: 10px;
+		font-size: 100%;
+		border-radius: 2px;
+	}
+	input[type="submit"] {
+		background: whitesmoke;
+		border: 1px solid #aaa;
+		outline: none;
+	}
+	td, th {
+		padding: 10px 15px;
+		border-left: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+	}
+	form {
+		border-bottom: 1px solid #aaa;
+		padding: 50px;
+	}
+	form:last-of-type {
+		border-bottom: none;
+	}
+	.timer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: #aaa;
+	}
+	td {
+		text-align: center;
+	}
+</style>
+<div id="eventlog-content">Loading...</div>
+<div class="timer"></div>
+<div class="autoincrementer">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+
+			$.post("backend.eventlog.php", function(data) {
+				$("#eventlog-content").html(data);
+			});
+
+			setInterval(function() {
+				if ($(".timer").width() <= $(window).width()) {
+					$(".timer").css("width", $(".timer").width() + 2);
+				} else {
+					$(".timer").css("width", "0");
+						$.post("backend.eventlog.php", function(data) {
+						$("#eventlog-content").html(data);
+					});
+				}
+			}, 1);
+
+		});
+	</script>
+</div>

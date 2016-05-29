@@ -1,0 +1,53 @@
+body {
+	background: whitesmoke;
+	overflow: hidden;
+}
+
+.question {
+	background: #fff;
+	width: 90%;
+	margin: 5% auto;
+	margin-bottom: 0;
+	max-width: 400px;
+	margin-top: 50vh;
+	transform: translate(0, -50%);
+	-webkit-transform: translate(0, -50%);
+	-moz-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transition: transform 0.1s;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px 1px rgba(50, 50, 50, 0.05);
+	padding: 40px;
+	box-sizing: border-box;
+	color: black;
+	line-height: 1.5;
+}
+
+form {
+	margin-bottom: -10px;
+}
+
+form input, form select {
+	transition: 0.2s;
+	width: 100%;
+}
+
+[disabled] {
+	background: whitesmoke !important;
+	color: #aaa;
+}
+
+.footer {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+.linksjustthat a {
+	display: block;
+	border: 1px solid #69e;
+	padding: 10px 15px;
+	border-radius: 3px;
+	margin-bottom: 20px;
+}
